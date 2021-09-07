@@ -8,6 +8,11 @@
 # testing
 /coverage
 
+
+#extra
+/design
+style-guide.md
+
 # production
 /build
 

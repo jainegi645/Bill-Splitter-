@@ -1,31 +1,16 @@
-import React,{useState} from "react";
+/* eslint-disable no-undef */
+import React  from "react";
 import styled from "styled-components";
 import Btn from "./reuse-component/Button";
-// import { lighten, modularScale } from 'polished';
+import  {tipAction} from "../actions/index"
+import {useDispatch} from 'react-redux'; 
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
 `;
 
-/*const Btn = styled.a`
-  background-color: hsl(183, 100%, 12%);
-  width: 50%;
-  padding: 0.3em 1em;
-  color: white;
-  font-family: "Space Mono", monospace;
-  border-radius: 4px;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  &:focus {
-  border: hsl(184, 100%, 34%) solid 1px;
-  background-color:yellow;  
-  outline-offset: -3px;
-  }
-`;
-*/
+
 const Label = styled.label`
   font-size: 0.9em;
   align-self: flex-start;
@@ -38,9 +23,10 @@ const Label = styled.label`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1em;
+  grid-gap: 0.8em;
   margin-top: 0.5em;
 `;
+
 const Input = styled.input`
   width: 50%;
   text-align: end;
@@ -63,22 +49,20 @@ const Input = styled.input`
 function DiscountBtn() {
 
   //States
-  const [Discount, setDiscount] = useState(0);
+  // const [Discount, setDiscount] = useState(0);
+  const dispatch = useDispatch();
 
-
-  //functions to perform changes 
- 
 
   return (
     <Wrapper>
-      <Label>Select Tip %  {Discount}</Label>
+      <Label>Select Tip % </Label>
       <Grid>
-        <Btn width= {'large'} padding = {'large'} onClick = {()=> setDiscount(5)} value = {'4%'} children = {'hasd'} color='black'>  </Btn>
-        <Btn  onClick = {()=> setDiscount(10)}>10%</Btn>
-        <Btn  onClick = {()=> setDiscount(15)}>15%</Btn>
-        <Btn  onClick = {()=> setDiscount(25)}>25%</Btn>
-        <Btn  onClick = {()=> setDiscount(50)}>50%</Btn>
-        <Input type="numeric" inputmode="numeric"  placeholder="Custom" onChange = {()=> setDiscount()}></Input>
+        <Btn onClick = {()=> dispatch(tipAction(5))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.5em 1em" fontWeight={700} >5%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(10))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>10%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(15))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>15%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(25))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>25%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(50))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>50%</Btn>
+        <Input onChange = {(e)=> dispatch(tipAction(e.target.value))}  type="numeric" inputmode="numeric"  placeholder="Custom" ></Input>
       </Grid>
     </Wrapper>
   );

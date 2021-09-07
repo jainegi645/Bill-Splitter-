@@ -39,11 +39,11 @@ const Label = styled.label`
   font-weight: 700;
 `;
 
-function Input({ placeholder, label, img }) {
+function Input({ placeholder, label, img,onChange }) {
   return (
     <Wrapper>
       <Label> {label}</Label>
-      <InputBox img ={img} placeholder={placeholder}></InputBox>
+      <InputBox img ={img} placeholder={placeholder} onChange={onChange}></InputBox>
     </Wrapper>
   );
 }

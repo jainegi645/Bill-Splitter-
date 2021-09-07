@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,7 +43,7 @@ outline: none;
 border: solid 1px hsl(184, 100%, 40%)  ;
 `;
 
-const Para = styled.p`
+const Para = styled.div`
 display:flex;
 justify-content:space-between;
 align-items: center;
@@ -59,14 +60,17 @@ line-height: 0.01rem;
 `;
 
 function ShowTotal() {
-    return (
+const Calculate = useSelector((state)=>state.Calculate);
+//  const tipIncluded = useSelector(state => state.tipIncluded)
+  
+ return (
         <Wrapper>
         <Para>
         <Section>
         Tip Amount<Span>/  person</Span>
         </Section>
 
-        <Output> $4.27</Output>
+        <Output>${Calculate}</Output>
         </Para>
 
         <Para>
