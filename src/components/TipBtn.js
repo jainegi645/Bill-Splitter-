@@ -8,6 +8,12 @@ import {useDispatch} from 'react-redux';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom:1.4em ;
+background-color: #fff;
+@media screen and (min-width: 480px) {
+  padding-bottom:2em ;
+  
+     }
 `;
 
 
@@ -25,10 +31,14 @@ const Grid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.8em;
   margin-top: 0.5em;
+  @media screen and (min-width: 480px) {
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 0.8em;   
+     }
 `;
 
 const Input = styled.input`
-  width: 50%;
+  width: 53%;
   text-align: end;
   background-color: hsl(189, 41%, 97%);
   padding: 0.3em 1em;
@@ -57,11 +67,11 @@ function DiscountBtn() {
     <Wrapper>
       <Label>Select Tip % </Label>
       <Grid>
-        <Btn onClick = {()=> dispatch(tipAction(5))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.5em 1em" fontWeight={700} >5%</Btn>
-        <Btn onClick = {()=> dispatch(tipAction(10))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>10%</Btn>
-        <Btn onClick = {()=> dispatch(tipAction(15))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>15%</Btn>
-        <Btn onClick = {()=> dispatch(tipAction(25))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>25%</Btn>
-        <Btn onClick = {()=> dispatch(tipAction(50))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="50%" padding="0.4em 1em" fontWeight={700}>50%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(5))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="85%" padding="0.7em 1em" fontWeight={700} >5%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(10))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="85%" padding="0.7em 1em" fontWeight={700}>10%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(15))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="85%" padding="0.7em 1em" fontWeight={700}>15%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(25))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="85%" padding="0.7em 1em" fontWeight={700}>25%</Btn>
+        <Btn onClick = {()=> dispatch(tipAction(50))}  color='white' bg = "hsl(183, 100%, 12%)" minWidth="50%" maxWidth="85%" padding="0.7em 1em" fontWeight={700}>50%</Btn>
         <Input onChange = {(e)=> dispatch(tipAction(e.target.value))}  type="numeric" inputmode="numeric"  placeholder="Custom" ></Input>
       </Grid>
     </Wrapper>

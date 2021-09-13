@@ -7,7 +7,11 @@ const Btn = styled.button`
   outline: none;
   border: none;
   font-family: "Space Mono", monospace;
+  &:focus{
+    background-color: hsl(184, 100%, 40%);
+    color: hsl(183, 100%, 12%);
 
+  }
   ${space}
   ${color}
   ${layout} 
